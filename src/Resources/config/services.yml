@@ -1,0 +1,23 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  Hyoa\TwigProfilerVariablesBundle\:
+    resource: '../../../src/*'
+
+  templating.engine.profiler_variables:
+    class: Hyoa\TwigProfilerVariablesBundle\Engine\TwigEngineDecorator
+    tags:
+      - {name: "templating.engine"}
+
+  Hyoa\TwigProfilerVariablesBundle\Engine\TwigEngine: "@templating.engine.profiler_variables"
+  Symfony\Bundle\FrameworkBundle\Templating\TemplateNameParser: "@templating.name_parser"
+
+  Hyoa\TwigProfilerVariablesBundle\DataCollector\VariablesCollector:
+    tags:
+      -
+        name: data_collector
+        template: '@TwigProfilerVariables/Collector/variables'
+        id: 'twig_profiler_variables.collector'

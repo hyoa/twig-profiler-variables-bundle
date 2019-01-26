@@ -1,0 +1,23 @@
+{% extends '@WebProfiler/Profiler/layout.html.twig' %}
+
+{% block toolbar %}
+    {% set icon %}
+        <span class="sf-toolbar-value">Variables</span>
+    {% endset %}
+
+    {% set text %}
+        <style type="text/css" rel="stylesheet" itemscope>
+            pre.sf-dump {
+                width: 480px;
+            }
+        </style>
+        <div class="sf-toolbar-info-piece variables-collector">
+            {% for template in collector.templates %}
+                <h3>Template: {{ template.name }}</h3>
+                {{ dump(template.variables) }}
+            {% endfor %}
+        </div>
+    {% endset %}
+
+    {{ include('@WebProfiler/Profiler/toolbar_item.html.twig', { link: false }) }}
+{% endblock %}
