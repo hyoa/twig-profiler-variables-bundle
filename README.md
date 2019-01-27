@@ -2,8 +2,7 @@
 
 ## Installation
 
-The bundle is designed to work with Symfony 3.4 or 4.x. Older version are not supported.  
-It require the framework-bundle and the web-profiler to work. If they are not already present in your installation, you will have to add them.
+The bundle is designed to work with Symfony 3.4 or 4.x. Older version are not supported.
 
 Install the bundle via Composer:  
 `composer require --dev hyoa/twig-profiler-variables-bundle`
