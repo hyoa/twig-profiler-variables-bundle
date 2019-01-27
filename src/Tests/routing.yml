@@ -1,0 +1,3 @@
+controller_test:
+  path: /test
+  defaults: { _controller: TwigProfilerVariablesBundle:Default:index }

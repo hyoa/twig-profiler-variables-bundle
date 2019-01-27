@@ -1,0 +1,8 @@
+framework:
+  secret: This is a secret, change me
+  router:
+    resource: 'routing.yml'
+    strict_requirements: ~
+  templating:
+    engines: ['profiler_variables']
+  profiler: { enabled: true, collect: false }
