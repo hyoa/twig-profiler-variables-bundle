@@ -35,9 +35,4 @@ class DataCollectorTest extends WebTestCase
         $this->assertEquals('a random string', $collector->getTemplates()[0]['variables']['variable1']);
         $this->assertEquals([1, 2, 3, 4], $collector->getTemplates()[0]['variables']['variable2']);
     }
-
-    protected static function getKernelClass()
-    {
-        return DataCollectorTestKernel::class;
-    }
 }
