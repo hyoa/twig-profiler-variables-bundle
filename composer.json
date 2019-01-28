@@ -1,7 +1,6 @@
 {
   "name": "hyoa/twig-profiler-variables-bundle",
   "type": "symfony-bundle",
-  "version": "1.0.0",
   "description": "Show variables send to twig when using render method",
   "keywords": ["variables", "profiler", "extra", "bundle"],
   "license": "MIT",
