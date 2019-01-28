@@ -1,11 +1,15 @@
 # TwigProfilerVariablesBundle
 
+## Description
+Allow to see variables send by a controller to the twig template.
+Variables that cannot be serialized are ignored (it's variable that contain closure)
+
 ## Installation
 
 The bundle is designed to work with Symfony 3.4 or 4.x. Older version are not supported.
 
 Install the bundle via Composer:  
-`composer require --dev hyoa/twig-profiler-variables-bundle`
+`composer require --dev hyoa/twig-profiler-variables-bundle dev-master`
 
 Enable the bundle in your kernel:  
 
