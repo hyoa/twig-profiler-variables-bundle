@@ -9,6 +9,8 @@ use Symfony\Component\HttpKernel\DataCollector\DataCollector;
 
 class VariablesCollector extends DataCollector
 {
+    protected $serializer;
+
     public function __construct()
     {
         $this->data['templates'] = [];
@@ -45,10 +47,19 @@ class VariablesCollector extends DataCollector
      */
     public function collectTemplateParameters($name, $variables)
     {
-        $this->data['templates'][] = [
-            'name' => $name,
-            'variables' => $variables,
-        ];
+        $template = [];
+        $template['name'] = $name;
+
+        foreach ($variables as $key => $variable) {
+            try {
+                \Opis\Closure\serialize($variable);
+                $template['variables'][$key] = $variable;
+            } catch (\Exception $e) {
+                continue;
+            }
+        }
+
+        $this->data['templates'][] = $template;
     }
 
     /**
@@ -57,5 +68,15 @@ class VariablesCollector extends DataCollector
     public function getTemplates()
     {
         return $this->data['templates'];
+    }
+
+    public function serialize()
+    {
+        return \Opis\Closure\serialize($this->data['templates']);
+    }
+
+    public function unserialize($data)
+    {
+        $this->data['templates'] = \Opis\Closure\unserialize($data);
     }
 }
